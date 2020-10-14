@@ -1,0 +1,39 @@
+{
+    "name": "webdriverio-google-maps",
+    "version": "3.0.0",
+    "description": " ",
+    "main": "index.js",
+    "scripts": {
+        "test": "wdio wdio.conf.js",
+        "serve:local": "serve -s build -l 4000"
+    },
+    "author": "",
+    "license": "ISC",
+    "homepage": "",
+    "dependencies": {
+        "@types/mocha": "^7.0.2",
+        "webdriverio": "^6.1.12"
+    },
+    "devDependencies": {
+        "@types/chai": "^4.2.11",
+        "@wdio/cli": "^6.1.12",
+        "@wdio/dot-reporter": "^6.1.9",
+        "@wdio/local-runner": "^6.1.12",
+        "@wdio/mocha-framework": "^6.1.8",
+        "@wdio/devtools-service": "^6.4.6",
+        "@wdio/selenium-standalone-service": "^6.4.0",
+        "@wdio/spec-reporter": "^6.1.12",
+        "@wdio/sync": "^6.1.8",
+        "chai": "^4.2.0",
+        "copyfiles": "^2.2.0",
+        "it-each": "^0.4.0",
+        "pre-commit": "^1.2.2",
+        "rimraf": "^3.0.2",
+        "ts-node": "^8.10.1",
+        "tsconfig-paths": "^3.9.0",
+        "tslint": "^6.1.2",
+        "tslint-config-airbnb": "^5.11.2",
+        "typescript": "^3.9.3",
+        "serve": "^11.3.2"
+    }
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Click Events</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8VRFTrUZH2A3_FaPE5vtvPlfFnRKzfDc&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+    <style type="text/css">
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script>
+      function initMap() {
+        var lat = Number(document.getElementById("latitude").value);
+        var lon = Number(document.getElementById("longitude").value);
+        const myLatlng = { lat: lat, lng: lon};
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 4,
+          center: myLatlng,
+        });
+        const marker = new google.maps.Marker({
+          position: myLatlng,
+          map,
+          title: "marker",
+         
+        });
+        map.addListener("center_changed", () => {
+          // 3 seconds after the center of the map has changed, pan back to the
+          // marker.
+          window.setTimeout(() => {
+            map.panTo(marker.getPosition());
+          }, 3000);
+        });
+        marker.addListener("click", () => {
+          map.setZoom(8);
+          map.setCenter(marker.getPosition());
+        });
+      }
+      
+    </script>
+  </head>
+  <body>
+    Latitude:<input type="text" value="0" id="latitude"> Longitude:<input type="text" value="0" id="longitude">
+    <button id="submit" type="button" onclick="initMap();">Submit</button><br>
+    <div id="map"></div>
+  </body>
+</html>
